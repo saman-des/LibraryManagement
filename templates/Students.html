@@ -29,8 +29,15 @@
                                 <td>{{Students.phone }}</td>
                                 <td>{{Students.date }}</td>
                                 <td>
-                                    <a href="/edit{{ Students.name }}"><span class="edits glyphicon-pencil">Edit</span></a>
-                                    <a href="/delete/{{ Students.name }}">Delete</a>
+{#                                    <button><a href="/edit{{ Students.name }}"><span class="edits glyphicon-pencil">Edit</span></a></button>#}
+                                     <button><a><span class="edits glyphicon-pencil">Edit</span></a></button>
+
+                                    <button onclick="myFunction()"><a>Delete</a></button><script>
+                                    function myFunction() {
+                                    document.getElementById("myTable").deleteRow(0);
+                                    }
+                                    </script>
+
                                 </td>
 							</tr>
 						{% endfor %}
