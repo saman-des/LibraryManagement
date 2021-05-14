@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'crm1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'LMS',
+        # 'NAME': 'LMS',
         'USER': 'postgres',
         'PASSWORD': 'subin123',
         'HOST': 'localhost',
