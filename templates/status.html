@@ -1,15 +1,33 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<style>
+
+	/* These are the css styles that are used for the 4 features used in the dashboard page */
+	#total-orders, #orders-delivered, #orders-pending{
+		background-image: linear-gradient(to right bottom, #08a7d7, #0091e3, #0077e8, #3554de, #7b06c0);
+		border-radius: 20px;
+		font-size: 20px;
+		text-align: center;
+	}
+	body
+	{
+		background: rgb(195, 209, 255);
+	}
+
+</style>
 <br>
 
-z
+<!-- The block content includes the 4 features add books, student details, book request and view books -->
+{% block content %}
 <div class="row">
 	<div class="col">
 		<div class="col-md">
 			<div class="card text-center text-white  mb-3" id="total-orders">
 			  	<div class="card-header">
-			  		<a style="color: #ff0000" class="card-title" href="{% url 'add' %}">+Add Books</a>
-{#                    book_upload#}
+					<i class="fas fa-plus"></i>
 			  	</div>
 			  	<div class="card-body">
+					<a style="color: white" class="card-title" href="{% url 'add' %}">Add Books</a>
+{#                    book_upload#}
 			    	<h3 class="card-title">{{total_orders}}</h3>
 			  	</div>
 			</div>
@@ -20,9 +38,11 @@ z
 		<div class="col-md">
 			<div class="card text-center text-white  mb-3" id="orders-delivered">
 			  	<div class="card-header">
-			  		<a style="color: #ff0000" class="card-title" href="{% url 'Students' %}">Student Details</a>
+					<i class="fas fa-info"></i>
 			  	</div>
 			  	<div class="card-body">
+{#			  		<a style="color: #ff0000" class="card-title" href="{% url 'Students' %}">Student Details</a>#}
+                    <a style="color: white" class="card-title" href="{% url 'lmbook' %}">Student Details</a>					  
 			    	<h3 class="card-title">{{delivered}}</h3>
 			  	</div>
 			</div>
@@ -33,9 +53,10 @@ z
 		<div class="col-md">
 			<div class="card text-center text-white  mb-3" id="orders-pending">
 			  	<div class="card-header">
-			  		<h5 class="card-title">Pending Book Request</h5>
+					<i class="fas fa-book-reader"></i>
 			  	</div>
 			  	<div class="card-body">
+					<a href="{% url 'home' %}" style="color: white" class="card-title" >Book Request</a>
 			    	<h3 class="card-title">{{pending}}</h3>
 			  	</div>
 			</div>
@@ -45,12 +66,15 @@ z
 		<div class="col-md">
 			<div class="card text-center text-white  mb-3" id="orders-pending">
 			  	<div class="card-header">
-			  		<h5 class="card-title">Return Books Details</h5>
+					<i class="fas fa-book"></i>
 			  	</div>
 			  	<div class="card-body">
+					{% csrf_token %}
+                    <a href="{% url 'lmstudent' 1%}" style="color: white" class="card-title">View Books Details</a>
 			    	<h3 class="card-title">{{pending}}</h3>
 			  	</div>
 			</div>
 		</div>
 	</div>
 </div>
+{% endblock %}
